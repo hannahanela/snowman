@@ -57,6 +57,9 @@ function Snowman({
     });
 
     setNWrong(n => n + (answer.includes(ltr) ? 0 : 1));
+    if (nWrong > maxWrong) {
+      nWrong = "You Lose";
+    }
   }
 
   /** generateButtons: return array of letter buttons to render */
