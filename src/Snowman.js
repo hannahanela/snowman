@@ -34,7 +34,7 @@ function Snowman({
   const [guessedLetters, setGuessedLetters] = useState(() => new Set());
   const [answer, setAnswer] = useState((words)[0]);
 
-  const loseMessage = nWrong > maxWrong ? "You lose!" : null
+  const loseMessage = nWrong === maxWrong ? "You lose!" : null
 
   /** guessedWord: show current-state of word:
    if guessed letters are {a,p,e}, show "app_e" for "apple"
@@ -82,7 +82,7 @@ function Snowman({
         {loseMessage === null && <p>
         <p className="letterButtons">{generateButtons()}</p>
         </p>}
-        {loseMessage !== null && <p> {loseMessage} </p>}
+        {loseMessage !== null && <p className="Snowman-lose"> {loseMessage} {answer}</p>}
       </div>
   );
 }

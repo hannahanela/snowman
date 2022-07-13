@@ -26,6 +26,15 @@ describe("smoke test", function () {
 
 describe('end of game', function () {
     it("if lost, nWrong === maxWrong", function () {
-        
+        const { container, debug } = render(<Snowman maxWrong="1"/>);
+
+        const wrongLetter = container.querySelector('button[value="x"]')
+        fireEvent.click(wrongLetter);
+
+        debug(container.querySelector(".Snowman-lose"));
+        expect(container).toContainHTML("You lose!");
+
+        // final render has lose message and no buttons
+
     })
 })
